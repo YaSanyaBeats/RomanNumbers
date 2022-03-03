@@ -8,6 +8,7 @@ class Program
         RomanNumber b = new RomanNumber(2999);
         RomanNumber c = new RomanNumber(4);
         RomanNumber d = new RomanNumber(500);
+        RomanNumber e = new RomanNumber(3999);
 
         Console.WriteLine("A = 2459 = MMCDLIX: " + a.ToString());
         Console.WriteLine("B = 2999 = MMCMXCIX: " + b.ToString());

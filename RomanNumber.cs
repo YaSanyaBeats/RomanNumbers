@@ -10,12 +10,15 @@ public class RomanNumber : ICloneable, IComparable
     public RomanNumber(ushort n)
     {
         decimalNumber = n;
-
+        if (n <= 0 || n >= 4000)
+        {
+            throw new RomanNumberException("Некорректное десятичное число");
+        }
     }
     //Сложение римских чисел
     public static RomanNumber Add(RomanNumber? n1, RomanNumber? n2)
     {
-        if(n1 == null || n2 == null)
+        if(n1 == null || n2 == null || n1.decimalNumber + n2.decimalNumber > 3999)
         {
             throw new RomanNumberException("Некорректные входные данные");
         }
@@ -34,7 +37,7 @@ public class RomanNumber : ICloneable, IComparable
     //Умножение римских чисел
     public static RomanNumber Mul(RomanNumber? n1, RomanNumber? n2)
     {
-        if (n1 == null || n2 == null)
+        if (n1 == null || n2 == null || n1.decimalNumber * n2.decimalNumber > 3999)
         {
             throw new RomanNumberException("Некорректные входные данные");
         }
@@ -56,10 +59,6 @@ public class RomanNumber : ICloneable, IComparable
         if(romanNumber == "")
         {
             ushort n = decimalNumber;
-            if (n <= 0 || n >= 4000)
-            {
-                throw new RomanNumberException("Некорректное десятичное число");
-            }
 
             string[] romanSymbols = new string[] { "M", "D", "C", "L", "X", "V", "I" };
 
